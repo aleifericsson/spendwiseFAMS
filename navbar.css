@@ -39,6 +39,10 @@
     padding-left: 50px;
 }
 
+.fa-money-bill-trend-up {
+  margin-right: 0.5rem;
+}
+
 #navbar_title {
     background-color: var(--pink);
     background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
