@@ -1,6 +1,5 @@
 import express from 'express';
 import fetch from 'node-fetch'; // No need to require
-//import firebase from 'firebase/app';
 
 class Account {
     constructor(accountData) {
@@ -67,26 +66,16 @@ app.get('/api/createRandomAccounts/:quantity', async (req, res) => {
             },
             body: JSON.stringify({
                 quantity: quanity,
-                numTransactions: 25,
+                numTransactions: 20,
                 liveBalance: true,
             }),
         });
 
-        // const data = await response.json();
-        // var accounts = data.Accounts
-        // for (var account in accounts)
-        // {
-        //     var accountClass = new Account(account)
-        //     var newMessageRef = messagesRef.child(accountClass.accountId);
-        //     newMessageRef.set(
-        //         {
-        //             Account: accountClass
-        //         });
-        // }
+        const data = await response.json();
         res.json(data);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error fetching data');
+        res.status(500).send('Error fetching data: ' + error);
     }
 });
 
