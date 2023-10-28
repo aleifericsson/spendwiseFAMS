@@ -67,7 +67,7 @@ app.get('/api/createRandomAccounts/:quantity', async (req, res) => {
             },
             body: JSON.stringify({
                 quantity: quanity,
-                numTransactions: 2,
+                numTransactions: 25,
                 liveBalance: true,
             }),
         });

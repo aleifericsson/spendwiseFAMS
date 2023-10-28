@@ -14,8 +14,13 @@
 
 .container {
   background: #191919;
-  min-height: 610px;
+  min-height: 100vh;
   font-family: Montserrat, sans-serif;
+}
+
+.sidebar{
+    height:100vh;
+    background-color: var(--secondary-color);
 }
 
 .sidebar_icons a {

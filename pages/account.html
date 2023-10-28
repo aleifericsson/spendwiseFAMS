@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
-		<link rel="stylesheet" href="navbar.css">
-		<link rel="stylesheet" href="sidebar.css">
+		<link rel="stylesheet" href="../css/navbar.css">
+		<link rel="stylesheet" href="../css/sidebar.css">
+		<link rel="stylesheet" href="../css/charts.css">
 		<link
 		rel="stylesheet"
 		href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
@@ -24,7 +25,7 @@
 			</div>
 			<ul class="navbar_menu">
 				<li class="navbar_item">
-					<a href="#" class="navbar_links">Home</a>
+					<a href="../index.html" class="navbar_links">Home</a>
 				</li>
 				<li class="navbar_item">
 					<a href="#" class="navbar_links">Section</a>
@@ -36,18 +37,35 @@
 			</ul>
 		</div>
 	</nav>
-	<script src="navbar.js"></script>
+	<script src="../js/navbar.js"></script>
 
+	<div class="sidebar">
 	<nav class="sidebar_icons">
 		<a href="#first" class="fas fa-user"></a>
 		<a href="#second" class="fas fa-briefcase"></a>
 		<a href="#third" class="far fa-file"></a>
 		<a href="#fourth" class="far fa-address-card"></a>
 	</nav>
+	</div>
 
  <div class="container"> 
 	 <section id="first">
-		 <h1>First</h1>
+		 <div class="cat-chart">
+			<div class="variables">
+				<div class="variable" id="1"></div>
+				<div class="variable" id="2"></div>
+				<div class="variable" id="3"></div>
+				<div class="variable" id="4"></div>
+				<div class="variable" id="5"></div>
+			</div>
+			<div class="bars">
+				<div class="bard" id="1"></div>
+				<div class="bard" id="2"></div>
+				<div class="bard" id="3"></div>
+				<div class="bard" id="4"></div>
+				<div class="bard" id="5"></div>
+			</div>
+		 </div>
 	 </section>
 	 
 	 <section id="second">
@@ -62,5 +80,6 @@
 		<h1>Fourth</h1>
 	 </section>
  </div>
+ <script src="../js/handleChart.js"></script>
 </body>
 </html>
