@@ -11,24 +11,9 @@ const firebaseConfig = {
 
 const jwtToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJuYmYiOjE2OTYwMzIwMDAsImFwaV9zdWIiOiJjMjliMTVjNzZmY2E4N2NiNTMzM2MzMmM4NzY0YWY0MmJjMGUxNjBkMzU4YzZlZDE1MGJjZjZmZWZiNjQzMmE5MTcxNzIwMDAwMDAwMCIsInBsYyI6IjVkY2VjNzRhZTk3NzAxMGUwM2FkNjQ5NSIsImV4cCI6MTcxNzIwMDAwMCwiZGV2ZWxvcGVyX2lkIjoiYzI5YjE1Yzc2ZmNhODdjYjUzMzNjMzJjODc2NGFmNDJiYzBlMTYwZDM1OGM2ZWQxNTBiY2Y2ZmVmYjY0MzJhOSJ9.lx7zs8uJa9s73nnnZS8dXYmYUQPhhZ4sdd7_HdU0MmSBRuFa2DrJD2EnMnAyjIAjuGV7DpsLKL4gIA5UGmzK0btPb9tcmpffYg05xe3dtbGyaG-gStLSiSPblVwM3VbAFt0Eo6rGoQy6MDmwo9WgT8X_ty00MoYUbaPOUG6lIDeXXT6rlUkqQGmSJjoR8b8b0yHY1ONguH66LdrtipPXkSsFS-1h-kGA0q-ljNmNF-pXz4k7Js5rKFY4FaEVtUJbjM2JJH3ftcVV0vvpIjW37q-oL_msD6VS7aiJ5sECbocDeeOAH_xI07U6JhcL1O4rh1wx5T9izce0K4m9HPi8zg";
 
-
 firebase.initializeApp(firebaseConfig);
 
-var messagesRef = firebase.database().ref('Collected Data');
-
-document.getElementById('signupForm').addEventListener('submit', submitForm);
-
-function submitForm(e) {
-    e.preventDefault();
-
-    // Get values
-    var name = getInputVal('name');
-    var email = getInputVal('email');
-    var password = getInputVal('password');
-
-    saveMessage(name, email,password);
-    document.getElementById('contactForm').reset();
-}
+var messagesRef = firebase.database().ref('Data');
 
 document.getElementById('loginForm').addEventListener('submit', submitForm);
 
@@ -37,11 +22,10 @@ function submitForm(e) {
 
     // Get values
     var name = getInputVal('name');
-    var email = getInputVal('email');
     var password = getInputVal('password');
 
-    saveMessage(name, email,password);
-    document.getElementById('contactForm').reset();
+    saveMessage(name,password);
+    document.getElementById('loginForm').reset();
 }
 
 
@@ -51,28 +35,11 @@ function getInputVal(id) {
 }
 
 // Save message to firebase
-function saveMessage(name, mail,pass) {
-    var newMessageRef = messagesRef.push();
-    newMessageRef.set({
-        accountID: name,
-        email: mail,
-        password:pass,
-    });
-}
-
-
-function populateDatabase(quantity)
-{
-    var unirest = require('unirest');
-var req = unirest('POST', 'https://sandbox.capitalone.co.uk/developer-services-platform-pr/api/data/accounts/create')
-    .headers({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJuYmYiOjE2OTYwMzIwMDAsImFwaV9zdWIiOiJjMjliMTVjNzZmY2E4N2NiNTMzM2MzMmM4NzY0YWY0MmJjMGUxNjBkMzU4YzZlZDE1MGJjZjZmZWZiNjQzMmE5MTcxNzIwMDAwMDAwMCIsInBsYyI6IjVkY2VjNzRhZTk3NzAxMGUwM2FkNjQ5NSIsImV4cCI6MTcxNzIwMDAwMCwiZGV2ZWxvcGVyX2lkIjoiYzI5YjE1Yzc2ZmNhODdjYjUzMzNjMzJjODc2NGFmNDJiYzBlMTYwZDM1OGM2ZWQxNTBiY2Y2ZmVmYjY0MzJhOSJ9.lx7zs8uJa9s73nnnZS8dXYmYUQPhhZ4sdd7_HdU0MmSBRuFa2DrJD2EnMnAyjIAjuGV7DpsLKL4gIA5UGmzK0btPb9tcmpffYg05xe3dtbGyaG-gStLSiSPblVwM3VbAFt0Eo6rGoQy6MDmwo9WgT8X_ty00MoYUbaPOUG6lIDeXXT6rlUkqQGmSJjoR8b8b0yHY1ONguH66LdrtipPXkSsFS-1h-kGA0q-ljNmNF-pXz4k7Js5rKFY4FaEVtUJbjM2JJH3ftcVV0vvpIjW37q-oL_msD6VS7aiJ5sECbocDeeOAH_xI07U6JhcL1O4rh1wx5T9izce0K4m9HPi8zg',
-        'version': '1.0',
-    })
-    .send('{\n\t"quantity": ${quantity},\n\t"numTransactions": ${numTransactions},\n\t"liveBalance": ${liveBalance}\n}')
-    .end(function (res) {
-        if (res.error) throw new Error(res.error);
-        console.log(res.raw_body);
-    });
+function saveMessage(name,pass) {
+    var newMessageRef = messagesRef.child(name);
+    newMessageRef.set(
+        {
+            accountID: name,
+            password:pass,
+        });
 }
