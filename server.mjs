@@ -1,5 +1,38 @@
 import express from 'express';
 import fetch from 'node-fetch'; // No need to require
+//import firebase from 'firebase/app';
+
+class Account {
+    constructor(accountData) {
+        this.accountId = accountData.accountId;
+        this.firstname = accountData.firstname;
+        this.phoneNumber = accountData.phoneNumber;
+        this.developerId = accountData.developerId;
+        this.uci = accountData.uci;
+        this.riskScore = accountData.riskScore;
+        this.creditScore = accountData.creditScore;
+        this.currencyCode = accountData.currencyCode;
+        this.productType = accountData.productType;
+        this.email = accountData.email;
+        this.lastname = accountData.lastname;
+        this.homeAddress = accountData.homeAddress;
+        this.state = accountData.state;
+        this.creditLimit = accountData.creditLimit;
+        this.balance = accountData.balance;
+        this.liveBalance = accountData.liveBalance;
+    }
+
+    // Method to display the account details
+    displayAccount() {
+        console.log(`Account ID: ${this.accountId}`);
+        console.log(`Name: ${this.firstname} ${this.lastname}`);
+        console.log(`Phone Number: ${this.phoneNumber}`);
+        console.log(`Email: ${this.email}`);
+        console.log(`Balance: ${this.balance} ${this.currencyCode}`);
+        console.log(`Credit Limit: ${this.creditLimit} ${this.currencyCode}`);
+        console.log(`Account State: ${this.state}`);
+    }
+}
 
 
 const app = express();
@@ -7,6 +40,19 @@ const port = 3000;
 
 app.use(express.json());
 
+const firebaseConfig = {
+    apiKey: "AIzaSyCbrFy7qtVxIsBclYMDzp_d20LVKo7s5Ko",
+    authDomain: "hackathon2023fams.firebaseapp.com",
+    databaseURL: "https://hackathon2023fams-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "hackathon2023fams",
+    storageBucket: "hackathon2023fams.appspot.com",
+    messagingSenderId: "859728024558",
+    appId: "1:859728024558:web:8876daa5be55721b5334ff",
+    measurementId: "G-QL9N8MW368" 
+};
+
+// firebase.initializeApp(firebaseConfig);
+// var messagesRef = firebase.database().ref('Data');
 
 // Creating x random accounts
 app.get('/api/createRandomAccounts/:quantity', async (req, res) => {
@@ -26,7 +72,17 @@ app.get('/api/createRandomAccounts/:quantity', async (req, res) => {
             }),
         });
 
-        const data = await response.json();
+        // const data = await response.json();
+        // var accounts = data.Accounts
+        // for (var account in accounts)
+        // {
+        //     var accountClass = new Account(account)
+        //     var newMessageRef = messagesRef.child(accountClass.accountId);
+        //     newMessageRef.set(
+        //         {
+        //             Account: accountClass
+        //         });
+        // }
         res.json(data);
     } catch (error) {
         console.error(error);

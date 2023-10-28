@@ -28,6 +28,25 @@ function submitForm(e) {
     document.getElementById('loginForm').reset();
 }
 
+document.getElementById('random').addEventListener('click', getRandomAccount);
+
+
+function getRandomAccount(){
+    var URL = "http://localhost:3000/api/createRandomAccounts/1"
+    fetch(URL, {
+        method: 'GET',
+        mode: "no-cors",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': jwtToken, // Replace with your JWT token
+            'version': '1.0',
+        },
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+}
+
 
 // Function to get form values
 function getInputVal(id) {
