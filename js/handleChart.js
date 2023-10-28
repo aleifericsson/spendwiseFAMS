@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     build_chart(data);
 
+    build_map(raw_data);
+
   });
 
   function build_chart(data){
@@ -52,10 +54,50 @@ document.addEventListener("DOMContentLoaded", async () => {
         highest_count=data.cat_count[i];
       }
     }
-    console.log(highest_count);
     for(let i=0; i<temp_num; i++){
       const num = (data.cat_count[i]/highest_count)*400;
-      console.log(`${num}px`);
       bar_list[i].style.width=`${num}px`;
     }
   }
+
+  function build_map(raw_data){
+    const map = document.querySelector(".map");
+    raw_data.Transactions.forEach(transaction => {
+      const pin_div = document.createElement("div");
+      pin_div.classList.add("pin");
+      pin_div.innerHTML = `<?xml version="1.0" encoding="utf-8"?>
+      <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+      <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+      <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="25px" width="15px" fill="#F0C808" stroke="#242424" 
+        style="
+        stroke-opacity: 1;
+        stroke-width:2;
+        stroke-miterlimit: 3.97446823;
+        stroke-dasharray: none;"
+          viewBox="0 0 56.068 100" enable-background="new 0 0 56.068 100" xml:space="preserve">
+      <path d="M28.034,0C12.552,0,0,12.552,0,28.034S28.034,100,28.034,100s28.034-56.483,28.034-71.966S43.517,0,28.034,0z
+        M28.034,40.477c-6.871,0-12.442-5.572-12.442-12.442c0-6.872,5.571-12.442,12.442-12.442c6.872,0,12.442,5.57,12.442,12.442
+        C40.477,34.905,34.906,40.477,28.034,40.477z"/>
+      </svg>
+      `;
+      const lon = transaction.longitude;
+      const lat = transaction.latitude;
+      const blc_lon = -9.1;
+      const blc_lat = 46.74154;
+      const trc_lon = 3.803219 ;
+      const trc_lat = 63.59491;
+      let nlon = (lon-blc_lon)/(trc_lon-blc_lon);
+      let nlat = (trc_lat-lat)/(trc_lat-blc_lat);
+      nlon = nlon*100;
+      nlat = nlat*100;
+      pin_div.setAttribute("style", `position:absolute;top:${nlat}%;left:${nlon}%;transform:translate(-50%,-90%);`);
+    map.appendChild(pin_div); 
+  })
+  }
+
+  /*
+  bottom left corner: 48.574154, -8.915824
+  top right corner: 61.969491, 3.103219
+
+  test point: 55.011995, -5.122980
+  */
