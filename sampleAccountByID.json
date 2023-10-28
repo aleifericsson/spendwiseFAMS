@@ -1,0 +1,22 @@
+{
+    "Accounts": [
+        {
+            "accountId": "00428702",
+            "firstname": "Orval",
+            "phoneNumber": "+44863579571",
+            "developerId": "123",
+            "uci": "856747",
+            "riskScore": "35",
+            "creditScore": "600",
+            "currencyCode": "GBP",
+            "productType": "Debit",
+            "email": "Orval.Schuster@sendemails.com",
+            "lastname": "Schuster",
+            "homeAddress": "18 Fairbank Avenue, Bexleyheath, United Kingdom",
+            "state": "open",
+            "creditLimit": "0",
+            "balance": "1000",
+            "liveBalance": "false"
+        }
+    ]
+}
