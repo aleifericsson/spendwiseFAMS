@@ -31,11 +31,30 @@ function submitForm(e) {
 document.getElementById('random').addEventListener('click', getRandomAccount);
 
 
+function getRandomAccountV2(){
+    var URL = "https://sandbox.capitalone.co.uk/developer-services-platform-pr/api/data/accounts/create"
+    fetch(URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': jwtToken, // Replace with your JWT token
+            'version': '1.0',
+        },
+        body: JSON.stringify({
+            quantity: 1,
+            numTransactions: 20,
+            liveBalance: true,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
+}
+
 function getRandomAccount(){
     var URL = "http://localhost:3000/api/createRandomAccounts/1"
     fetch(URL, {
         method: 'GET',
-        mode: "no-cors",
         headers: {
             'Content-Type': 'application/json',
             'Authorization': jwtToken, // Replace with your JWT token
@@ -44,7 +63,7 @@ function getRandomAccount(){
     })
     .then(response => response.json())
     .then(data => console.log(data))
-    .catch(error => console.error(error));
+    .catch(error => console.log(error));
 }
 
 
