@@ -16,6 +16,9 @@
 
 .navbar {
     background: var(--black);
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--blue);
     height: 80px;
     display: flex;
     justify-content: center;
@@ -39,8 +42,8 @@
     padding-left: 50px;
 }
 
-.fa-money-bill-trend-up {
-  margin-right: 0.5rem;
+.fa-money-check {
+  margin-right: 0.5em;
 }
 
 #navbar_title {
@@ -55,7 +58,7 @@
     align-items: center;
     cursor: pointer;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .navbar_menu {
@@ -108,7 +111,7 @@
 }
 
 .navbar_links:hover {
-    color: var(--pink2);
+    color: var(--blue);
     transition: all 0.3s ease;
 }
 
