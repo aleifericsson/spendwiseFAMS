@@ -6,28 +6,17 @@ body {
     /*background: #FFCF77;*/
     background-image: radial-gradient(circle,gold 40%,black,#616161) ;
     background-image: radial-gradient(#f2b705,
-    #e3ac12,
-    #d4a119,
-    #c5961d,
-    #b78c21,
-    #a88123,
-    #9a7725,
-    #8c6d26,
-    #7f6327,
-    #715928,
-    #645028,
-    #574627,
-    #4a3d26,
-    #3d3426,
-    #302b24,
     #232323);
+    height: 100vh;
+    width: 100vw;
   }
   
   .login {
     position: relative;
     margin: 200px auto;
     padding: 20px 20px 20px;
-    width: 310px;
+    min-width: 310px;
+    max-width:400px;
     /*background: white; Changing the Colour Depending on choice */
     /*background: #2a2929 ;*/
     /*background: #0d4768 ;*/
@@ -67,7 +56,7 @@ body {
     -webkit-box-shadow: 0 1px whitesmoke;
     box-shadow: 0 1px whitesmoke;
   }
-  
+
   
   .login p {
     margin: 25px 0 0;
@@ -77,9 +66,6 @@ body {
     margin-top: 0;
   }
   
-  .login input[type=text], .login input[type=password] {
-    width: 278px;
-  }
   
   .login p.remember_me {
     float: left;

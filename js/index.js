@@ -16,7 +16,7 @@ firebase.initializeApp(firebaseConfig);
 
 var messagesRef = firebase.database().ref('Collected Data');
 
-document.getElementById('contactForm').addEventListener('submit', submitForm);
+document.getElementById('signupForm').addEventListener('submit', submitForm);
 
 function submitForm(e) {
     e.preventDefault();
@@ -29,6 +29,21 @@ function submitForm(e) {
     saveMessage(name, email,password);
     document.getElementById('contactForm').reset();
 }
+
+document.getElementById('loginForm').addEventListener('submit', submitForm);
+
+function submitForm(e) {
+    e.preventDefault();
+
+    // Get values
+    var name = getInputVal('name');
+    var email = getInputVal('email');
+    var password = getInputVal('password');
+
+    saveMessage(name, email,password);
+    document.getElementById('contactForm').reset();
+}
+
 
 // Function to get form values
 function getInputVal(id) {
