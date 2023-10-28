@@ -24,8 +24,9 @@ function submitForm(e) {
     // Get values
     var name = getInputVal('name');
     var email = getInputVal('email');
+    var password = getInputVal('password');
 
-    saveMessage(name, email);
+    saveMessage(name, email,password);
     document.getElementById('contactForm').reset();
 }
 
@@ -35,11 +36,12 @@ function getInputVal(id) {
 }
 
 // Save message to firebase
-function saveMessage(name, email) {
+function saveMessage(name, mail,pass) {
     var newMessageRef = messagesRef.push();
     newMessageRef.set({
         accountID: name,
-        passoword: email,
+        email: mail,
+        password:pass,
     });
 }
 
