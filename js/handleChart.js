@@ -32,10 +32,30 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     console.log(data);
 
-    build_chart();
+    build_chart(data);
 
   });
 
-  function build_chart(){
-    document.querySelector(".cat-chart");
+  function build_chart(data){
+    const var_list = [...document.querySelectorAll(".variable")];
+    const bar_list = [...document.querySelectorAll(".bard")]
+    let temp_num = 0;
+    let highest_count = 0;
+    if (data.cat_names.length>5){
+      temp_num=5;
+    }else{
+      temp_num = data.cat_names.length
+    }
+    for(let i=0; i<temp_num; i++){
+      var_list[i].innerHTML=data.cat_names[i];
+      if (data.cat_count[i]>=highest_count){
+        highest_count=data.cat_count[i];
+      }
+    }
+    console.log(highest_count);
+    for(let i=0; i<temp_num; i++){
+      const num = (data.cat_count[i]/highest_count)*400;
+      console.log(`${num}px`);
+      bar_list[i].style.width=`${num}px`;
+    }
   }

@@ -1,0 +1,35 @@
+.cat-chart{
+    height:400px;
+    width:650px;
+    background-color: white;
+    display: flex;
+}
+
+.variables{
+    width:200px;
+    background-color: antiquewhite;
+    height:400px;
+}
+
+.variable{
+    height:80px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: right;
+}
+
+.bars{
+    width:400px;
+    height:400px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.bard{
+    display:flex;
+    height:40px;
+    background-color: blueviolet;
+}
