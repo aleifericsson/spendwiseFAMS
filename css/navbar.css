@@ -254,3 +254,9 @@ section{
   height: 400px;
   text-align: center;
 }
+
+.horizontal{
+  display: flex;
+  justify-content: center;
+  gap:50px;
+}
