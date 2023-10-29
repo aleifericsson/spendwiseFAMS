@@ -1,4 +1,39 @@
 /* Set the opacity of the element to 0 by default */
+:root {
+  --black: #131313;
+  --pink: #ff8177;
+  --pink2: #f77062;
+  --white: #ffffff;
+  --blue: #4837ff;
+}
+
+/* CSS for the About section */
+.about {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--pink2);
+  padding: 30px;
+}
+
+.profile {
+  text-align: center;
+}
+
+.profile-pic {
+  border-radius: 50%; /* Make profile pictures circular */
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.about h2 {
+  font-size: 18px;
+  margin-top: 10px;
+  background-color: var(--pink2);
+}
+
+
 .fade-in {
   opacity: 0;
   transition: opacity 0.8s ease-out;
@@ -10,7 +45,7 @@
 
 
 .header{
-    background-color: #1d2c2c;
+    background-color: var(--pink);
     margin: 0 auto;
     display: inline-block;
     list-style-type: none;
@@ -29,8 +64,15 @@
 }
 
 body {
-    background-color: #1e3638;
-      margin: 0;
+  /* background-image: url("../images/finance.jpg"); Set the background image */
+  background-size: cover; /* Cover the entire viewport */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  background-attachment: fixed; /* Fixed background to prevent scrolling */
+
+  /* Add an rgba background color with 50% opacity */
+  background-color: var(--pink);
+
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   animation: 1.21s 1 slideInFromBottom;
 }
@@ -41,7 +83,7 @@ nav
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #1d2c2c;
+  background-color: var(--pink);
   position: sticky;
   top: 0
 }
@@ -50,7 +92,7 @@ nav
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1d2c2c;
+  background-color: --black;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -92,6 +134,7 @@ h6,
 p {
     text-align: center;
     color: #fff;
+    background-color: var(--pink);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -116,12 +159,12 @@ nav ul li a:hover {
     padding: 40px;
     text-align: center;
     color: #fff;
-    margin-bottom: 100px;
-    background-color: #1d2c2c;
+    margin-bottom: 10px;
+    background-color: var(--pink);
     border-end-end-radius: 100px;
     border-end-start-radius: 100px;
     margin: 0 auto;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
 
     
 }
@@ -145,7 +188,7 @@ to { transform: translateY(0); opacity: 1; }
 }
 
 .modal-content {
-  background-color: #1d2c2c;
+  background-color: var(--pink);
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
   position: fixed; /* Position fixed to keep it centered even when scrolling */
@@ -232,6 +275,15 @@ select {
     border-radius: 20px;
 }
 
+img{
+    border-radius: 50%; /* Make profile pictures circular */
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    object-fit: cover;
+  
+}
+
 .modal-content img {
   display: block;
     max-width: 100%;
@@ -312,7 +364,7 @@ button:hover {
     position: absolute;
     top: 70px;
     left: 0;
-    background-color: #1d2c2c;
+    background-color: var(--pink);
     width: 100%;
     padding: 20px 0;
     text-align: center;
@@ -340,11 +392,11 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1d2c2c;
+  background-color: var(--pink);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  margin: 100px;
+  margin: 10px;
   
 }
 
@@ -355,13 +407,13 @@ button:hover {
 }
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
 }
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1d2c2c;
+  background-color: var(--black);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
