@@ -117,6 +117,10 @@
   #main_img {
     height: 80%;
     width: 80%;
+    border-radius: 15px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: var(--blue);
   }
   
   /* Mobile Responsive */

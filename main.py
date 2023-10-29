@@ -54,5 +54,35 @@ for i in range(iterations):
 file.write(json.dumps(accounts_data))
 transFile.write(json.dumps(trans_data))
 
+# find the number of accounts
+num_accounts = len(accounts_data['Accounts'])
+# find the number (of transactions
+trans_account = len(trans_data['Transactions'])
+print("Number of accounts: " + str(num_accounts))
+print("Number of transactions:  " + str(trans_account))
+
+# filter the transactions by GBP and United Kingdom found in Transaction -> Currency
+import json
+
+# Sample JSON data, replace this with your actual data or read from a file
+with open("ListOfTransactions.json", "r") as json_file:
+    data = json.loads(json_file)
+
+# Filter transactions with currency GBP
+filtered_transactions = [transaction for transaction in data["Transactions"] if transaction["currency"] == "GBP"]
+
+# Create a new JSON object with only the filtered transactions
+filtered_data = {"Transactions": filtered_transactions}
+
+# Write the filtered data to a JSON file
+with open("ListOfTransactions.json", "w") as json_file:
+    json.dumps(filtered_data, json_file, indent=4)
+
+print("Filtered transactions written to ListOfTransactions.json")
+
+
 # Close the file when all iterations are complete
 file.close()
+transFile.close()
+
+
