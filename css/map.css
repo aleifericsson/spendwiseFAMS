@@ -21,3 +21,22 @@
     font-weight: 700;
     font-size: 40px;
 }
+
+.key{
+    position:absolute;
+    top:5%;
+    padding:5px;
+    background-color:black;
+    border:3px solid blue;
+    transform: translate(0,-50%);
+}
+
+.expendits{
+
+    color:red;
+}
+
+.income{
+    
+    color:green;
+}

@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       variables2.appendChild(vard);
     }
     const line = document.querySelector(".line");
-    line.innerHTML= `Highest: ${hi.toFixed(2)}`;
+    line.innerHTML= `Highest: £${hi.toFixed(2)}`;
   }
 
   function build_chart(data){
