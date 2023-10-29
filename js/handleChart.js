@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     */
 
     let raw_data = raw_raw_data.Transactions.slice(25*num2,25*(num2+1));
-    let data={cat_names:[],cat_count:[],tot_spent:0,tot_earned:0,net:0};
+    let data={cat_names:[],cat_count:[],cat_amount:[],tot_spent:0,tot_earned:0,net:0};
     console.log(raw_data);
     raw_data.forEach(transaction =>{
       if (transaction.amount <= 0)
@@ -52,9 +52,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (data.cat_names.includes(transaction.merchant.category)){
           const index = data.cat_names.indexOf(transaction.merchant.category);
           data.cat_count[index] += 1;
+          data.cat_amount[index] += transaction.amount;
         } else{
           data.cat_names.push(transaction.merchant.category);
           data.cat_count.push(1);
+          data.cat_amount.push(transaction.amount);
         }
       }
       
@@ -102,6 +104,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     for(let i=0; i<temp_num; i++){
       const num = (data.cat_count[i]/highest_count)*400;
       bar_list[i].style.width=`${num}px`;
+      const num2 = data.cat_amount[i].toFixed(2)
+      bar_list[i].innerHTML = `£${num2}`;
     }
   }
 
@@ -110,10 +114,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     raw_data.forEach(transaction => {
       const pin_div = document.createElement("div");
       pin_div.classList.add("pin");
+      if (transaction.amount<0)
+      {
       pin_div.innerHTML = `<?xml version="1.0" encoding="utf-8"?>
       <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
       <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-      <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="25px" width="15px" fill="#F0C808" stroke="#242424" 
+      <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="25px" width="15px" fill="green" stroke="#242424" 
         style="
         stroke-opacity: 1;
         stroke-width:2;
@@ -125,6 +131,24 @@ document.addEventListener("DOMContentLoaded", async () => {
         C40.477,34.905,34.906,40.477,28.034,40.477z"/>
       </svg>
       `;
+      }
+      else{
+        pin_div.innerHTML = `<?xml version="1.0" encoding="utf-8"?>
+      <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+      <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+      <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="25px" width="15px" fill="red" stroke="#242424" 
+        style="
+        stroke-opacity: 1;
+        stroke-width:2;
+        stroke-miterlimit: 3.97446823;
+        stroke-dasharray: none;"
+          viewBox="0 0 56.068 100" enable-background="new 0 0 56.068 100" xml:space="preserve">
+      <path d="M28.034,0C12.552,0,0,12.552,0,28.034S28.034,100,28.034,100s28.034-56.483,28.034-71.966S43.517,0,28.034,0z
+        M28.034,40.477c-6.871,0-12.442-5.572-12.442-12.442c0-6.872,5.571-12.442,12.442-12.442c6.872,0,12.442,5.57,12.442,12.442
+        C40.477,34.905,34.906,40.477,28.034,40.477z"/>
+      </svg>
+      `;
+      }
       const lon = transaction.longitude;
       const lat = transaction.latitude;
       const blc_lon = -9.1;

@@ -1,19 +1,19 @@
 .map{
     width:800px;
     height:800px;
-    background-color: white;
     position:relative;
 }
 
 .map-name{
     position: absolute;
-    color:black;
-    background-color: white;
+    color:white;
+    text-shadow: -3px -3px 0 blue, 3px -3px 0 blue, -3px 3px 0 blue, 3px 3px 0 blue;
     top:5%;
     left:50%;
     transform: translate(-50%,-50%);
     font-weight: 700;
     font-size: 40px;
+    padding:5px;
 }
 
 .chart-name{

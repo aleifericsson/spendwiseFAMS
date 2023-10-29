@@ -14,6 +14,14 @@
     font-family: 'Kumbh Sans', sans-serif;
 }
 
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:50px;
+}
+
 .navbar {
     background: var(--black);
     border-style: solid;
