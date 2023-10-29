@@ -1,6 +1,14 @@
 const chart_but = document.querySelector(".make-chart");
 
 document.addEventListener("DOMContentLoaded", async () => {
+
+    const num = Math.floor(Math.random()*250);
+    const endpoint1 = await fetch("../ListOfAccounts.json");
+    let account_data = await endpoint1.json();
+    const cur_acc = account_data.Accounts[num];
+
+    const welc = document.querySelector(".welcome");
+    welc.innerHTML = `Welcome, ${cur_acc.firstname} ${cur_acc.lastname}`;
   /*
     const endpoint = await fetch("http://localhost:3000/api/transactions/41558210",{mode:"no-cors", method:"GET", headers:{"Content-Type":"application/json"}});
     console.log(endpoint);
@@ -8,12 +16,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(raw_data);
     */
 
-    const endpoint = await fetch("../mock_transactions.json");
-    console.log(endpoint);
-    let raw_data = await endpoint.json();
+    const num2 = Math.floor(Math.random()*225);
+    console.log(num2);
+    const endpoint2 = await fetch("../ListOfTransactions.json");
+    let raw_raw_data = await endpoint2.json();
+
+    /*
+    let raw_data = raw_raw_data.Transactions.filter(transaction => {
+      console.log(transaction.accountUUID);
+      console.log(87008339);
+      return transaction.accountUUID === 87008339;
+    })
+    */
+
+    let raw_data = raw_raw_data.Transactions.slice(25*num2,25*(num2+1));
+    let data={cat_names:[],cat_count:[],tot_spent:0,tot_earned:0,net:0};
     console.log(raw_data);
-    let data={cat_names:[],cat_count:[],tot_spent:0,tot_earned:0};
-    raw_data.Transactions.forEach(transaction =>{
+    raw_data.forEach(transaction =>{
       if (transaction.amount <= 0)
       {
         data.tot_earned-= transaction.amount;
@@ -29,6 +48,21 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
       
     });
+    data.net = (data.tot_spent-data.tot_earned).toFixed(2);
+    data.tot_earned = data.tot_earned.toFixed(2);
+    data.tot_spent = data.tot_spent.toFixed(2);
+    if (data.net <0){
+      document.querySelector(".net").style.color = "green";
+      data.net = data.net*-1;
+    }
+    else if (data.net >0){
+      document.querySelector(".net").style.color = "red";
+    }
+
+    document.querySelector(".earnt").innerHTML=`Total Earned: £${data.tot_earned}`;
+    document.querySelector(".spent").innerHTML=`Total Spent: £${data.tot_spent}`
+    document.querySelector(".net").innerHTML=`Net Expenditures: £${data.net}`
+
 
     console.log(data);
 
@@ -62,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function build_map(raw_data){
     const map = document.querySelector(".map");
-    raw_data.Transactions.forEach(transaction => {
+    raw_data.forEach(transaction => {
       const pin_div = document.createElement("div");
       pin_div.classList.add("pin");
       pin_div.innerHTML = `<?xml version="1.0" encoding="utf-8"?>
@@ -84,7 +118,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const lat = transaction.latitude;
       const blc_lon = -9.1;
       const blc_lat = 46.74154;
-      const trc_lon = 3.803219 ;
+      const trc_lon = 3.203219 ;
       const trc_lat = 63.59491;
       let nlon = (lon-blc_lon)/(trc_lon-blc_lon);
       let nlat = (trc_lat-lat)/(trc_lat-blc_lat);

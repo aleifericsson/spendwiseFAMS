@@ -206,3 +206,40 @@
       transform: translateY(-8px) rotate(-45deg);
     }
 }
+
+.welcome{
+  font-size: 50px;
+  color:white;
+}
+
+.bottom{
+  display: flex;
+  gap:50px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  height: 400;
+}
+
+.earnt, .spent, .net{
+  background-color:white;
+  padding: 20px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.earnt{
+  color:green;
+}
+
+.spent{
+  color:red;
+}
+
+.shmoney{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
+  text-align: center;
+}
