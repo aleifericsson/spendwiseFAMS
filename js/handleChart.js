@@ -83,29 +83,89 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     build_map(raw_data);
 
+    build_line_chart(raw_data,parseInt(cur_acc.balance));
+
   });
+
+  function build_line_chart(raw_data, fin_bal)
+  {
+    const bars2 = document.querySelector(".bars2");
+    const variables2 = document.querySelector(".variables2");
+    let bal_list = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,fin_bal];
+    let bar3_list = [];
+    let var3_list = [];
+    let hi = 0;
+    for(let i=0; i<24; i++){
+      bal_list[23-i] = bal_list[24-i]+raw_data[i].amount;
+      if (bal_list[23-i]>=hi){
+        hi = bal_list[23-i];
+      }
+    }
+    if (fin_bal>=hi){
+      hi = fin_bal;
+    }
+    if (bal_list[23]>=hi){
+      hi = bal_list[23];
+    }
+    console.log(bal_list);
+    for(let i = 0; i<25; i++){
+      const bard = document.createElement("div");
+      bard.classList.add("bard3");
+      const num = (bal_list[i]/hi)*400;
+      bard.style.height = `${num}px`;
+      bar3_list.push(bard);
+      bars2.appendChild(bard);
+      const vard = document.createElement("div");
+      vard.classList.add("variable3");
+      vard.innerHTML=`#${i}`;
+      var3_list.push(vard);
+      variables2.appendChild(vard);
+    }
+    const line = document.querySelector(".line");
+    line.innerHTML= `Highest: ${hi.toFixed(2)}`;
+  }
 
   function build_chart(data){
     const var_list = [...document.querySelectorAll(".variable")];
     const bar_list = [...document.querySelectorAll(".bard")]
+    const var2_list = [...document.querySelectorAll(".variable2")];
+    const bar2_list = [...document.querySelectorAll(".bard2")]
     let temp_num = 0;
     let highest_count = 0;
+    let highest_amount = 0;
+    let tot_count = 0;
     if (data.cat_names.length>5){
       temp_num=5;
     }else{
       temp_num = data.cat_names.length
     }
     for(let i=0; i<temp_num; i++){
-      var_list[i].innerHTML=`${data.cat_names[i]} (${data.cat_count[i]})`;
+      tot_count += data.cat_count[i];
+      
       if (data.cat_count[i]>=highest_count){
         highest_count=data.cat_count[i];
       }
+      if (data.cat_amount[i]>=highest_amount){
+        highest_amount=data.cat_amount[i];
+      }
+      
     }
     for(let i=0; i<temp_num; i++){
+      var_list[i].innerHTML=`${data.cat_names[i]} (${data.cat_count[i]})`;
+      var2_list[i].innerHTML = `${data.cat_names[i]}`;
       const num = (data.cat_count[i]/highest_count)*400;
+      const num3 = (data.cat_amount[i]/highest_amount)*400;
+
+      const num2 = data.cat_amount[i].toFixed(2);
       bar_list[i].style.width=`${num}px`;
-      const num2 = data.cat_amount[i].toFixed(2)
-      bar_list[i].innerHTML = `£${num2}`;
+      if (num3>50){
+        bar2_list[i].innerHTML = `£${num2}`;
+      }else{
+        bar2_list[i].innerHTML = `<div style="color:black;position:relative;left: ${num3+3}px">£${num2}</div>`;
+      }
+      
+      bar2_list[i].style.width=`${num3}px`;
+      bar_list[i].innerHTML = `${Math.floor((data.cat_count[i]/tot_count)*100)}%`;
     }
   }
 

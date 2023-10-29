@@ -1,8 +1,60 @@
-.cat-chart{
+.cat-chart, .expenses-chart{
     height:400px;
     width:650px;
     background-color: white;
     display: flex;
+}
+
+.balance-chart{
+    height:500px;
+    width:750px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.variables2{
+    width:750px;
+    height:50px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: antiquewhite;
+    position:relative;
+    top:-10.2%;
+}
+
+.bars2{
+    width:750px;
+    height:450px;
+    display:flex;
+    justify-content: space-around;
+    align-items: end;
+}
+.line {
+    border-bottom: 1px dotted black;
+    width: 750px;
+    font-size: 12px;
+    position:absolute;
+    padding-left: 5px;
+    top:272px;
+  }
+
+
+.variable3{
+    width:20px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    font-size:12px;
+    padding-top:2px;
+}
+
+.bard3{
+    width:10px;
+    height:5px;
+    background-color: blueviolet;
 }
 
 .variables{
@@ -11,7 +63,7 @@
     height:400px;
 }
 
-.variable{
+.variable, .variable2{
     height:80px;
     padding-right: 10px;
     display: flex;
@@ -29,7 +81,7 @@
     width:0;
 }
 
-.bard{
+.bard, .bard2{
     display:flex;
     height:40px;
     background-color: blueviolet;
