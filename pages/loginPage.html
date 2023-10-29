@@ -2,88 +2,64 @@
 <html>
   <head>
     <meta charset="UTF-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/navbar.css" type="text/css"/>
     <link rel="stylesheet" href="../css/login.css" type="text/css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-      crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" />
+    <link
+		rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+		integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+		crossorigin="anonymous"
   </head>
-  <body>
-  <!-- Navbar Section -->
-  <nav class="navbar">
-    <div class="navbar_container">
-      <a href="index.html" id="navbar_title"><i class="fas fa-money-check"></i>SpendwiseFAMS</a>
-      <div class="navbar_toggle" id="mobile-menu">
-        <span class="bar"></span> <span class="bar"></span>
-        <span class="bar"></span>
+  <body id="main">
+    <!-- Navbar Section -->
+    <nav class="navbar">
+      <div class="navbar_container">
+        <a href="index.html" id="navbar_title"><i class="fas fa-money-check"></i>SpendwiseFAMS</a>
+        <div class="navbar_toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar_menu">
+          <li class="navbar_item">
+            <a href="index.html" class="navbar_links">Home</a>
+          </li>
+          <li class="navbar_item">
+            <a href="account.html" class="navbar_links">Account</a>
+          </li>
+          <li class="navbar_item">
+            <a href="about.html" class="navbar_links">About</a>
+          </li>
+          <li class="navbar_btn"><a href="loginPage.html" class="button">Login</a></li>
+        </ul>
       </div>
-      <ul class="navbar_menu">
-        <li class="navbar_item">
-          <a href="index.html" class="navbar_links">Home</a>
-        </li>
-        <li class="navbar_item">
-          <a href="account.html" class="navbar_links">Account</a>
-        </li>
-        <li class="navbar_item">
-          <a href="about.html" class="navbar_links">About</a>
-        </li>
-        <li class="navbar_btn"><a href="loginPage.html" class="button">Login</a></li>
-      </ul>
-    </div>
-  </nav>
-  <script src="../js/navbar.js"></script>
+    </nav>
+    <script src="../js/navbar.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
-
-    <a href="../index.html">Press me to go back to the landing page</a>
-    <p></p>
-    <a href="account.html">Press me to bypass login</a>
-
-    <div class="login">
-      <h1>Login Information</h1>
-      <form class="container" id="loginForm"> 
-        <p>
-          <input
-            type="text"
-            name="login"
-            value=""
-            placeholder="AccountID"
-            id="name"
-            required
-          />
-        </p>
-        <p>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            value=""
-            placeholder="Password"
-            required
-          />
-        </p>
-        <p class="remember_me">
-          <label>
-            <input type="checkbox" name="remember_me" id="remember_me" />
-            Remember me on this computer
-          </label>
-        </p>
-        <p class="submit">
-          <input type="submit" name="commit" value="Login" />
-        </p>
-      </form>
+    
+    <div class="form">
+      <div class="title">Welcome</div>
+      <div class="subtitle">Login Information</div>
+      <div class="input-container ic1">
+        <input class="input" type="text" placeholder="" />
+        <div class="cut"></div>
+        <label for="idnumber" class="placeholder">ID Number</label>
+      </div>
+      <div class="input-container ic2">
+        <input class="input" type="text" placeholder="" />
+        <div class="cut"></div>
+        <label for="password" class="placeholder">Password</label>
+      </div>
+      <button type="text" class="submit">Submit</button>
+      <div>
+        <p class="create_account">Don't have an account?<a href="signupPage.html" class="redirect"> Click Here!</a></p>
+      </div>
     </div>
-    <section id="no-account" class="intro" style="color: white; margin: 20px 0; text-align: center; font-size: 11px;">
-        <p>Don't have an account? <a href="signupPage.html">Click here to create</a></p>
-    </section>
-    <div class="login-help">
-      <p>Forgot your password? <a href="#">Click here to reset it</a>.</p>
-    </div>
-
     <script src="../js/loginPage.js"></script>
   </body>
 </html>

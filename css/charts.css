@@ -26,10 +26,28 @@
     display:flex;
     flex-direction: column;
     justify-content: space-around;
+    width:0;
 }
 
 .bard{
     display:flex;
     height:40px;
     background-color: blueviolet;
+    color:white;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.account-data{
+    display:flex;
+    height:400px;
+    background-color: white;
+    width:400px;
+    justify-content: space-around;
+    padding:10px;
+    flex-direction: column;
+}
+
+.attrib{
+    color:black;
 }

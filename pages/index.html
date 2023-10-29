@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
-	<title>GeoCash</title>
-	<link rel="stylesheet" href="../css/chart.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendwiseFAMS</title>
+    <link rel="stylesheet" href="../css/navbar.css">
+	<link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap">
+    <link
+		rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+		integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+		crossorigin="anonymous">
 </head>
-<body class="container" style="margin-top: 50px;
-	width: 50%; height:auto;">
-	
-	<a href="../pages/loginPage.html">Login</a>
-	<p></p>
-	<a href="../pages/signupPage.html">Sign Up</a>
-    <p>hackathon</p>
-	<p class="text"></p>
-	<button class="make-chart">make chart</button>
-	<div id="cat-chart"></div>
-	<script src = "js/handleChart.js"></script>
-</body>
 
+<body>
+	<!-- Navbar Section -->
+	<nav class="navbar">
+		<div class="navbar_container">
+		  <a href="index.html" id="navbar_title"><i class="fas fa-money-check"></i>SpendwiseFAMS</a>
+		  <div class="navbar_toggle" id="mobile-menu">
+			<span class="bar"></span> <span class="bar"></span>
+			<span class="bar"></span>
+		  </div>
+		  <ul class="navbar_menu">
+			<li class="navbar_item">
+			  <a href="index.html" class="navbar_links">Home</a>
+			</li>
+			<li class="navbar_item">
+			  <a href="account.html" class="navbar_links">Account</a>
+			</li>
+			<li class="navbar_item">
+			  <a href="about.html" class="navbar_links">About</a>
+			</li>
+			<li class="navbar_btn"><a href="loginPage.html" class="button">Login</a></li>
+		  </ul>
+		</div>
+	</nav>
+	<script src="../js/navbar.js"></script>
+
+	<!-- Home Page Section -->
+    <div class="main">
+		<div class="main_container">
+		  <div class="main_content">
+			<h1>WELCOME TO </h1>
+			<h2>SpendWiseFAMS</h2>
+			<p>Your route to effortless financial data management</p>
+			<button class="main_btn"><a href="account.html">Start Managing</a></button>
+		  </div>
+		  <div class="main_img--container">
+			<img id="main_img" src="images/finance.svg"/>
+		  </div>
+		</div>
+	  </div>
+</body>
 </html>
