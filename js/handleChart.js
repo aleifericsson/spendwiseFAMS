@@ -2,8 +2,9 @@ const chart_but = document.querySelector(".make-chart");
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-    const num = Math.floor(Math.random()*250);
-    const endpoint1 = await fetch("../ListOfAccounts.json");
+    const num = Math.floor(Math.random()*150);
+    console.log(num)
+    const endpoint1 = await fetch("../ListOfAccountsFILTERED.json");
     let account_data = await endpoint1.json();
     const cur_acc = account_data.Accounts[num];
 
@@ -27,9 +28,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(raw_data);
     */
 
-    const num2 = Math.floor(Math.random()*225);
+    const num2 = Math.floor(Math.random()*150);
     console.log(num2);
-    const endpoint2 = await fetch("../ListOfTransactions.json");
+    const endpoint2 = await fetch("../ListOfTransactionsFILTERED.json");
     let raw_raw_data = await endpoint2.json();
 
     /*
