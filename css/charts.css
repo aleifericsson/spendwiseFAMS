@@ -35,3 +35,16 @@
     background-color: blueviolet;
 }
 
+.account-data{
+    display:flex;
+    height:400px;
+    background-color: white;
+    width:400px;
+    justify-content: space-around;
+    padding:10px;
+    flex-direction: column;
+}
+
+.attrib{
+    color:black;
+}

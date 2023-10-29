@@ -9,6 +9,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const welc = document.querySelector(".welcome");
     welc.innerHTML = `Welcome, ${cur_acc.firstname} ${cur_acc.lastname}`;
+    const acc_dat = document.querySelector(".account-data");
+    const attribs = ["Phone Number", "Credit Score", "Balance", "Card Type", "Credit Limit", "Home Address"];
+    const raw_attribs = [cur_acc.phoneNumber,cur_acc.creditScore,cur_acc.balance,cur_acc.productType,cur_acc.creditLimit,cur_acc.homeAddress];
+    console.log(raw_attribs)
+    for (let i=0; i<attribs.length; i++){
+      const ele = document.createElement("div");
+      ele.classList.add("attrib");
+      ele.innerHTML = `${attribs[i]}: ${raw_attribs[i]}`;
+      acc_dat.appendChild(ele);
+    }
+
   /*
     const endpoint = await fetch("http://localhost:3000/api/transactions/41558210",{mode:"no-cors", method:"GET", headers:{"Content-Type":"application/json"}});
     console.log(endpoint);
@@ -83,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       temp_num = data.cat_names.length
     }
     for(let i=0; i<temp_num; i++){
-      var_list[i].innerHTML=data.cat_names[i];
+      var_list[i].innerHTML=`${data.cat_names[i]} (${data.cat_count[i]})`;
       if (data.cat_count[i]>=highest_count){
         highest_count=data.cat_count[i];
       }
