@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Example</title>
+
+    <!-- Include the Google Maps JavaScript API with your API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_xfULeHXVDelvyfft75sdYSjQNsp9n2c"></script>
+
+    <style>
+        /* Set the size of the map container */
+        #map {
+            height: 1000px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <script>
+       function initMap() {
+            // Specify the center coordinates and zoom level
+            const ukCenter = { lat: 54.7023545, lng: -3.2765753 };
+
+  // Set the zoom level to show the entire UK
+  const zoomLevel = 6;
+
+  // Create a map object
+  const map = new google.maps.Map(document.getElementById('map'), {
+    center: ukCenter,
+    zoom: zoomLevel,
+  });
+
+            // Create markers for specific locations
+            const locations = [
+                { lat: 54.7023, lng: 4.7123545, title: 'Location 1' },
+                { lat: 54.123, lng: 4.7423545, title: 'Location 2' },
+                // Add more locations as needed
+            ];
+
+            locations.forEach((location) => {
+                const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: location.title,
+                });
+            });
+
+
+            // You can add more code here to customize the map and add markers.
+        }
+    </script>
+
+    <!-- Call the initMap function when the page loads -->
+    <script>
+        initMap();
+    </script>
+</body>
+</html>
