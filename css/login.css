@@ -12,13 +12,13 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Montserrat, sans-serif;
+  max-height: 90vh;
 }
 
-body {
-    background-image: radial-gradient(circle,gold 40%,black,#616161) ;
-    background-image: radial-gradient(#f2b705,
-    #232323);
-  }
+#main {
+  background-color: var(--light-pink);
+  max-height: 90vh;
+}
 
 .login {
   position: relative;
@@ -26,7 +26,7 @@ body {
   padding: 20px 20px 20px;
   min-width: 310px;
   max-width:400px;
-  background: #1a3247;
+  background: var(--black);
   border-radius: 5px;
   -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -35,30 +35,29 @@ body {
 .login:before {
   content: '';
   position: absolute;
-  top: -10px;
-  right: -10px;
-  bottom: -10px;
-  left: -10px;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  border-radius: 10px;
   z-index: -1;
-  background: rgba(0, 0, 0, 0.08);
-  border-radius: 4px;
+  background: var(--blue);
+  border-radius: px;
 }
 
 .login h1 {
   margin: -20px -20px 21px;
   line-height: 40px;
-  font-size: 15px;
+  font-size: 25px;
   font-weight: bold;
-  color: #1a3247;
+  color: var(--black);
   text-align: center;
-  text-shadow: 0 1px white;
   background: #f3f3f3;
   border-bottom: 1px solid #cfcfcf;
   border-radius: 3px 3px 0 0;
-  -webkit-box-shadow: 0 1px whitesmoke;
-  box-shadow: 0 1px whitesmoke;
+  -webkit-box-shadow: 0 1px var(--blue);
+  box-shadow: 0 1px var(--blue);
 }
-
 
 .login p {
   margin: 25px 0 0;
@@ -68,7 +67,6 @@ body {
   margin-top: 0;
 }
 
-
 .login p.remember_me {
   float: left;
   line-height: 31px;
@@ -76,7 +74,7 @@ body {
 
 .login p.remember_me label {
   font-size: 12px;
-  color: #777;
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -96,11 +94,8 @@ body {
   font-size: 11px;
   color: white;
   text-align: center;
-  /*text-shadow: 0 1px #2a85a1;*/
   text-shadow: 0 1px #1a3247;
 }
-
-
 
 .login-help a {
   color: #cce7fa;
@@ -134,16 +129,16 @@ input[type=text], input[type=password], input[type=email] {
   color: #404040;
   background: white;
   border: 1px solid;
-  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-  border-radius: 2px;
+  border-color: var(--pink);
+  border-radius: 3px;
   outline: 5px solid #eff4f7;
   -moz-outline-radius: 3px;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: inset 0 1px 3px var(--pink);
+  box-shadow: inset 0 1px 3px var(--pink);
 }
 
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
-  border-color: #7dc9e2;
+  border-color: var(--pink);
   outline-color: #dceefc;
   outline-offset: 0;
 }
@@ -157,7 +152,7 @@ input[type=submit] {
   text-shadow: 0 1px #e3f1f1;
   background: #cde5ef;
   border: 1px solid;
-  border-color: #b4ccce #b3c0c8 #9eb9c2;
+  border-color: var(--pink);
   border-radius: 16px;
   outline: 0;
   -webkit-box-sizing: content-box;
