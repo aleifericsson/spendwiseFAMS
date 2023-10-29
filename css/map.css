@@ -1,0 +1,23 @@
+.map{
+    width:800px;
+    height:800px;
+    background-color: white;
+    position:relative;
+}
+
+.map-name{
+    position: absolute;
+    color:black;
+    background-color: white;
+    top:5%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.chart-name{
+    color:white;
+    font-weight: 700;
+    font-size: 40px;
+}

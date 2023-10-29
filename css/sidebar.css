@@ -59,8 +59,10 @@ section {
     opacity: 0;
     transition: all ease-in .5s;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 50px;
 } 
 
 section h1 {
