@@ -1,4 +1,13 @@
 /* Set the opacity of the element to 0 by default */
+:root {
+  --black: #131313;
+  --pink: #ff8177;
+  --pink2: #f77062;
+  --white: #ffffff;
+  --blue: #4837ff;
+}
+
+
 .fade-in {
   opacity: 0;
   transition: opacity 0.8s ease-out;
@@ -10,7 +19,7 @@
 
 
 .header{
-    background-color: #1d2c2c;
+    background-color: var(--black);
     margin: 0 auto;
     display: inline-block;
     list-style-type: none;
@@ -29,7 +38,7 @@
 }
 
 body {
-    background-color: #1e3638;
+    background-color: var(--black);
       margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   animation: 1.21s 1 slideInFromBottom;
@@ -41,7 +50,7 @@ nav
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #1d2c2c;
+  background-color: var(--black);
   position: sticky;
   top: 0
 }
@@ -50,7 +59,7 @@ nav
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1d2c2c;
+  background-color: --black;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -117,7 +126,7 @@ nav ul li a:hover {
     text-align: center;
     color: #fff;
     margin-bottom: 100px;
-    background-color: #1d2c2c;
+    background-color: var(--black);
     border-end-end-radius: 100px;
     border-end-start-radius: 100px;
     margin: 0 auto;
@@ -145,7 +154,7 @@ to { transform: translateY(0); opacity: 1; }
 }
 
 .modal-content {
-  background-color: #1d2c2c;
+  background-color: var(--black);
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
   position: fixed; /* Position fixed to keep it centered even when scrolling */
@@ -312,7 +321,7 @@ button:hover {
     position: absolute;
     top: 70px;
     left: 0;
-    background-color: #1d2c2c;
+    background-color: var(--black);
     width: 100%;
     padding: 20px 0;
     text-align: center;
@@ -340,7 +349,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1d2c2c;
+  background-color: var(--black);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -361,7 +370,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1d2c2c;
+  background-color: var(--black);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
