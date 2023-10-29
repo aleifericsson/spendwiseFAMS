@@ -54,5 +54,17 @@ for i in range(iterations):
 file.write(json.dumps(accounts_data))
 transFile.write(json.dumps(trans_data))
 
+# find the number of accounts
+num_accounts = len(accounts_data['Accounts'])
+# find the number (of transactions
+trans_account = len(trans_data['Transactions'])
+print("Number of accounts: " + str(num_accounts))
+print("Number of transactions:  " + str(trans_account))
+
+
+
 # Close the file when all iterations are complete
 file.close()
+transFile.close()
+
+
