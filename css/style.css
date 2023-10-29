@@ -7,6 +7,32 @@
   --blue: #4837ff;
 }
 
+/* CSS for the About section */
+.about {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--pink2);
+  padding: 30px;
+}
+
+.profile {
+  text-align: center;
+}
+
+.profile-pic {
+  border-radius: 50%; /* Make profile pictures circular */
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.about h2 {
+  font-size: 18px;
+  margin-top: 10px;
+  background-color: var(--pink2);
+}
+
 
 .fade-in {
   opacity: 0;
@@ -38,8 +64,15 @@
 }
 
 body {
-    background-color: var(--pink);
-      margin: 0;
+  /* background-image: url("../images/finance.jpg"); Set the background image */
+  background-size: cover; /* Cover the entire viewport */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  background-attachment: fixed; /* Fixed background to prevent scrolling */
+
+  /* Add an rgba background color with 50% opacity */
+  background-color: var(--pink);
+
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   animation: 1.21s 1 slideInFromBottom;
 }
@@ -101,6 +134,7 @@ h6,
 p {
     text-align: center;
     color: #fff;
+    background-color: var(--pink);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -239,6 +273,15 @@ select {
     height: auto;
     margin-bottom: 10px;
     border-radius: 20px;
+}
+
+img{
+    border-radius: 50%; /* Make profile pictures circular */
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    object-fit: cover;
+  
 }
 
 .modal-content img {
