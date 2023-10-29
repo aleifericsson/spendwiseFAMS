@@ -54,9 +54,9 @@ section {
     position: absolute;
     display: flex;
     justify-content: center;
-    top: 150px;
-    width: 10vh; 
-    height: 5vh;
+    top: 10px;
+    width:10vw;
+    height:5vh;
     opacity: 0;
     transition: all ease-in .5s;
 }

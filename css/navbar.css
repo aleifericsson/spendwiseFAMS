@@ -14,13 +14,19 @@
     font-family: 'Kumbh Sans', sans-serif;
 }
 
+.body{
+  background-color: rgb(247, 171, 196)
+}
+
 section{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap:50px;
+  background-color: rgb(247, 171, 196);
 }
+
 
 .navbar {
     background: var(--black);
