@@ -11,12 +11,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Montserrat, sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 
 .container {
-  background: var(--black);
-  max-height: 90vh;
+  height: 0vh;
 }
 
 .sidebar{
@@ -53,21 +52,19 @@
 
 section {
     position: absolute;
-    top: 0;
-    height: 100vh;
-    width: 0;
-    opacity: 0;
-    transition: all ease-in .5s;
     display: flex;
     justify-content: center;
-    align-items: center;
-} 
-
-section h1 {
-    color: #fff;
-    font-size: 50px;
-    text-transform: uppercase;
+    top: 150px;
+    width: 10vh; 
+    height: 5vh;
     opacity: 0;
+    transition: all ease-in .5s;
+}
+
+section h2 {
+    padding-bottom: 20px;
+    color: #fff;
+    font-size: 1rem;
 }
 
 section:target {
@@ -82,22 +79,6 @@ section:target {
 section:target h1 {
     opacity: 0;
     animation: 2s fadeIn forwards .5s;
-}
-
-#first {
-  background:var(--primary-color);
-}
-
-#second {
-    background: var(--complimentary-color);
-}
-
-#third {
-    background: var(--contrast-color);
-}
-
-#fourth {
-    background: var(--light-color);
 }
 
 @keyframes fadeIn {
